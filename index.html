@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsh Agrawal - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1 class="logo">Arsh Agrawal</h1>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="experience.html">Experience</a>
+      <a href="Projects.html">Projects</a>
+
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>Hey! I'm Arsh 👋</h2>
+    <p id="dynamic-text"></p>
+    <a href="about.html" class="btn">Learn More About Me</a>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonial-container">
+    <div class="testimonial">
+      <p><strong>Kaizad 😉, Your Dev Buddy</strong></p>
+      <p>“This website speaks volumes about your passion. Keep building, keep shining!”</p>
+    </div>
+    <div class="testimonial">
+      <p><strong>Yog, Your Dev Buddy</strong></p>
+      <p>“Impressed by the design and speed of your work. You're going places, no doubt.”</p>
+    </div>
+    <div class="testimonial">
+      <p><strong>Moksh, Your Dev Buddy</strong></p>
+      <p>“Working with you was such a smooth experience! Your attention to detail is top notch.”</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Arsh Agrawal. All rights reserved.</p>
+</footer>
+
+<script>
+  // Simple typing animation
+  const texts = ["Building clean & interactive web experiences...", "Learning and growing as a web developer", "Passionate about coding & design"];
+  let index = 0;
+  let charIndex = 0;
+  let currentText = '';
+  const dynamicText = document.getElementById('dynamic-text');
+
+  function type() {
+    if(charIndex < texts[index].length) {
+      currentText += texts[index][charIndex];
+      dynamicText.textContent = currentText;
+      charIndex++;
+      setTimeout(type, 80);
+    } else {
+      setTimeout(erase, 2000);
+    }
+  }
+
+  function erase() {
+    if(charIndex > 0) {
+      currentText = currentText.slice(0, -1);
+      dynamicText.textContent = currentText;
+      charIndex--;
+      setTimeout(erase, 50);
+    } else {
+      index = (index + 1) % texts.length;
+      setTimeout(type, 500);
+    }
+  }
+
+  type();
+</script>
+
+</body>
+</html>
